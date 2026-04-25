@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Kids | 子供の創造性を解放する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8221A;
+    --red-light: #FF4B43;
+    --green: #4CAF50;
+    --blue: #2196F3;
+    --orange: #FF9800;
+    --yellow: #FFD600;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-tertiary: #a1a1a6;
+    --bg: #ffffff;
+    --bg-secondary: #f5f5f7;
+    --border: rgba(0,0,0,0.08);
+    --font-en: 'Outfit', sans-serif;
+    --font-ja: 'Noto Sans JP', sans-serif;
+    --font-serif: 'Noto Serif JP', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-ja);
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 36px;
+    width: 36px;
+    object-fit: contain;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-en);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text-primary); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 32px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-logo {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--font-en);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title span.c-red { color: var(--red); }
+  .hero-title span.c-green { color: var(--green); }
+  .hero-title span.c-blue { color: var(--blue); }
+  .hero-title span.c-orange { color: var(--orange); }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover {
+    background: var(--red-light);
+    transform: scale(1.02);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--red);
+    border: 1.5px solid var(--red);
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(232,34,26,0.06);
+    transform: scale(1.02);
+  }
+
+  /* COLOR DOTS BG */
+  .hero-bg-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+  }
+
+  /* SECTION BASE */
+  section { padding: 100px 32px; }
+
+  .section-label {
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 560px;
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--text-primary);
+    color: #fff;
+    padding: 60px 32px;
+  }
+
+  .stat-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 48px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--font-en);
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num .accent-red { color: #FF6B65; }
+  .stat-num .accent-green { color: #69D96E; }
+  .stat-num .accent-blue { color: #69B8F7; }
+  .stat-num .accent-orange { color: #FFC454; }
+
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    background: var(--bg);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .quote-block {
+    border-left: 3px solid var(--red);
+    padding-left: 24px;
+    margin: 32px 0;
+  }
+
+  .quote-text {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-weight: 300;
+  }
+
+  /* BIAS SECTION */
+  .bias-section {
+    background: var(--bg-secondary);
+  }
+
+  .bias-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .bias-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .bias-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .bias-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 0.5px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .bias-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  .bias-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .bias-card h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .bias-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  /* PROCESS */
+  .process-section {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: calc(16.66% + 24px);
+    right: calc(16.66% + 24px);
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--red), var(--orange), var(--green));
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle.s1 { background: var(--red); }
+  .step-circle.s2 { background: var(--orange); }
+  .step-circle.s3 { background: var(--green); }
+
+  .step-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .step-subtitle {
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .step-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  /* ACTIVITIES */
+  .activities-section {
+    background: var(--bg-secondary);
+  }
+
+  .activities-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .activities-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .timeline {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--red), var(--orange), var(--green), var(--blue));
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 48px 32px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2.5px solid var(--red);
+  }
+
+  .timeline-item:nth-child(2)::before { border-color: var(--orange); }
+  .timeline-item:nth-child(3)::before { border-color: var(--yellow); }
+  .timeline-item:nth-child(4)::before { border-color: var(--green); }
+  .timeline-item:nth-child(5)::before { border-color: var(--blue); }
+  .timeline-item:nth-child(6)::before { border-color: var(--red); }
+
+  .timeline-year {
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .timeline-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .timeline-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  /* PROMISE */
+  .promise-section {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .promise-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: left;
+    margin-top: 48px;
+  }
+
+  .promise-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    transition: transform 0.2s;
+  }
+
+  .promise-item:hover { transform: translateX(4px); }
+
+  .promise-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .promise-text {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* STAT BAND */
+  .stat-band {
+    background: var(--bg);
+    padding: 100px 32px;
+  }
+
+  .stat-band-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .stat-band-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .adobe-stat {
+    background: var(--text-primary);
+    border-radius: 24px;
+    padding: 56px 48px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    color: #fff;
+  }
+
+  .adobe-big {
+    font-family: var(--font-en);
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--red-light);
+    flex-shrink: 0;
+    letter-spacing: -0.04em;
+  }
+
+  .adobe-text h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .adobe-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+  }
+
+  .adobe-source {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 16px;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--bg-secondary);
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    background: var(--text-primary);
+    border-radius: 24px;
+    padding: 48px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .about-visual-icon {
+    font-size: 72px;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .about-visual h3 {
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .about-visual p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .award-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+    justify-content: center;
+  }
+
+  .award-badge {
+    background: rgba(255,255,255,0.1);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 980px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.03em;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--text-primary);
+    color: #fff;
+    text-align: center;
+    padding: 120px 32px;
+  }
+
+  .contact-section .section-label {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .contact-section .section-title {
+    color: #fff;
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+
+  .contact-section .section-body {
+    color: rgba(255,255,255,0.6);
+    margin: 0 auto 48px;
+  }
+
+  .btn-white {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: var(--text-primary);
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-white:hover {
+    background: rgba(255,255,255,0.9);
+    transform: scale(1.02);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-primary);
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 72px 20px; }
+    .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-steps::before { display: none; }
+    .process-step { padding: 0 0 48px; }
+    .adobe-stat { flex-direction: column; text-align: center; padding: 40px 28px; }
+    .adobe-big { font-size: 72px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-logo { width: 120px; height: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="../logoCK.png" alt="Creative Kids Logo">
+    <span class="nav-logo-text">Creative Kids</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">考え方</a></li>
+    <li><a href="#process">プロセス</a></li>
+    <li><a href="#activities">活動実績</a></li>
+    <li><a href="#about">TAKEBONについて</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-dots" aria-hidden="true">
+    <div class="dot" style="width:400px;height:400px;background:var(--red);top:-100px;right:-100px;"></div>
+    <div class="dot" style="width:300px;height:300px;background:var(--green);bottom:-80px;left:-80px;"></div>
+    <div class="dot" style="width:200px;height:200px;background:var(--blue);top:30%;left:10%;"></div>
+    <div class="dot" style="width:160px;height:160px;background:var(--orange);bottom:20%;right:15%;"></div>
+  </div>
+  <p class="hero-eyebrow">Since 2019</p>
+  <img class="hero-logo" src="../logoCK.png" alt="Creative Kids">
+  <h1 class="hero-title">
+    <span class="c-red">C</span><span class="c-orange">r</span><span class="c-green">e</span><span class="c-blue">a</span>tive<br>Kids
+  </h1>
+  <p class="hero-subtitle">
+    子どもの創造性は蓋をされているだけ。<br>
+    その蓋を外すきっかけが、すべてを変える。
+  </p>
+  <div class="hero-cta">
+    <a href="#philosophy" class="btn-primary">わたしたちについて</a>
+    <a href="https://note.com/takebonstudio/m/mb3a718fb0570" target="_blank" class="btn-secondary">noteで読む</a>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-grid">
+    <div class="reveal">
+      <div class="stat-num"><span class="accent-red">7</span></div>
+      <div class="stat-label">年間の活動実績</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num"><span class="accent-green">2000</span><span style="font-size:32px;">+</span></div>
+      <div class="stat-label">関わった子どもたち</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num"><span class="accent-blue">8</span><span style="font-size:32px;">%</span></div>
+      <div class="stat-label">日本Z世代の創造的自己認識率*</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-num"><span class="accent-orange">∞</span></div>
+      <div class="stat-label">子どもたちの可能性</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy" style="max-width:1100px;margin:0 auto;">
+    <div class="philosophy-grid">
+      <div class="reveal">
+        <p class="section-label">Philosophy</p>
+        <h2 class="section-title">子どもは<br>クリエイティブな<br>先生である</h2>
+        <div class="quote-block">
+          <p class="quote-text">
+            「創造性は誰にでも宿り、<br>自己効力感によって引き出される」
+          </p>
+        </div>
+        <p class="section-body">
+          子供の創造性は無限大。ただ、蓋をされているだけです。大人は既成概念やバイアスに縛られた生徒であり、子どもたちから学ぶことのほうが多い。そんな信念を軸に、子どもの創造性を社会とつなぐ活動を展開しています。
+        </p>
+      </div>
+      <div class="reveal" style="padding-left: 40px;">
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <div style="background:var(--bg-secondary);border-radius:20px;padding:32px;">
+            <div style="font-size:13px;font-weight:500;color:var(--text-tertiary);margin-bottom:10px;letter-spacing:0.05em;font-family:var(--font-en);">VISION</div>
+            <p style="font-size:18px;line-height:1.65;color:var(--text-primary);font-weight:400;">次世代の創造性を解放し、<br>エンパワメントする</p>
+          </div>
+          <div style="background:var(--bg-secondary);border-radius:20px;padding:32px;">
+            <div style="font-size:13px;font-weight:500;color:var(--text-tertiary);margin-bottom:10px;letter-spacing:0.05em;font-family:var(--font-en);">MISSION</div>
+            <p style="font-size:18px;line-height:1.65;color:var(--text-primary);font-weight:400;">子どもが自分の言葉で<br>「意図」を語れる環境をつくる</p>
+          </div>
+          <div style="background:var(--bg-secondary);border-radius:20px;padding:32px;">
+            <div style="font-size:13px;font-weight:500;color:var(--text-tertiary);margin-bottom:10px;letter-spacing:0.05em;font-family:var(--font-en);">VALUE</div>
+            <p style="font-size:18px;line-height:1.65;color:var(--text-primary);font-weight:400;">正解を探す力より、<br>想いを形にする力</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ADOBE STAT -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-band-header reveal">
+      <p class="section-label">The Challenge</p>
+      <h2 class="section-title">日本の現状と向き合う</h2>
+    </div>
+    <div class="adobe-stat reveal">
+      <div class="adobe-big">8%</div>
+      <div class="adobe-text">
+        <h3>「自分は創造的だ」と<br>答えた日本のZ世代</h3>
+        <p>世界の先進国では同様の質問に40%以上が「Yes」と回答。日本特有の謙遜文化・同調性バイアスが、子どもたちの創造性への自信を塞いでいます。しかし、これは「創造性がない」ということではありません。蓋を外すきっかけさえあれば、誰でも自然と動き出す。</p>
+        <p class="adobe-source">* Adobe Systems「Gen Z in the Classroom: the Future」より</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BIAS SECTION -->
+<section class="bias-section" id="bias">
+  <div class="bias-inner">
+    <div class="bias-header reveal">
+      <p class="section-label">What We Address</p>
+      <h2 class="section-title">創造性を妨げる<br>バイアスの正体</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center;">子どもたちの創造性に蓋をしてしまう、3つのバイアスに注目しています。</p>
+    </div>
+    <div class="bias-cards">
+      <div class="bias-card reveal">
+        <div class="bias-icon" style="background:rgba(232,34,26,0.08);">🎭</div>
+        <h3>謙遜バイアス</h3>
+        <p>日本特有の「自分を低く見せる」文化。相手を敬う謙遜の精神が、自己表現への抑制となり、創造性の発揮を妨げています。</p>
+      </div>
+      <div class="bias-card reveal">
+        <div class="bias-icon" style="background:rgba(33,150,243,0.08);">👥</div>
+        <h3>同調性バイアス</h3>
+        <p>協調性や同調を重んじる価値観。周囲と異なる意見や表現を「恥ずかしいこと」と感じる雰囲気が、独自の発想力を抑制します。</p>
+      </div>
+      <div class="bias-card reveal">
+        <div class="bias-icon" style="background:rgba(76,175,80,0.08);">📏</div>
+        <h3>評価バイアス</h3>
+        <p>偏差値や他者比較による評価が中心の環境。「正解を出すこと」への過度なプレッシャーが、自由な発想を妨げています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-section">
+    <div class="process-header reveal">
+      <p class="section-label">Our Approach</p>
+      <h2 class="section-title">3つのプロセス</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center;">このプロセスを繰り返すことで、創造性は自然と解放され、エンパワメントされていきます。</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-circle s1">1</div>
+        <div class="step-subtitle">Ignite</div>
+        <div class="step-title">着火する</div>
+        <p class="step-body">子どもの内なる「やってみたい」に火をつける。ワクワクする体験や対話を通じて、創造への衝動を引き出します。</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle s2">2</div>
+        <div class="step-subtitle">Unbias</div>
+        <div class="step-title">バイアス外し</div>
+        <p class="step-body">客観的な視点でそっと後押しする。第三者の目線からちょうど良いタイミングで声をかけ、思考の制限を外します。</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle s3">3</div>
+        <div class="step-subtitle">Transform</div>
+        <div class="step-title">変換する</div>
+        <p class="step-body">想いを形へ。子どもが「意図」を語り、アイデアを実際の創造物・表現へと変換するプロセスを伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROMISE -->
+<section id="promise">
+  <div class="promise-section">
+    <div class="reveal">
+      <p class="section-label">Our Promise</p>
+      <h2 class="section-title">クリエイティブキッズの約束</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center;">絵本作家のなるかわしんごさんとともに議論を重ね、大切にしている価値観を定めました。</p>
+    </div>
+    <ul class="promise-list">
+      <li class="promise-item reveal">
+        <div class="promise-dot" style="background:var(--red);"></div>
+        <p class="promise-text"><strong>子供を子供扱いせず、大人の都合に合わせない。</strong><br>子どもは小さな大人であり、同じ目線で向き合うことが、本来の創造性を引き出す第一歩です。</p>
+      </li>
+      <li class="promise-item reveal">
+        <div class="promise-dot" style="background:var(--orange);"></div>
+        <p class="promise-text"><strong>子供があるがままに輝けるよう、心理的安全性を確保する。</strong><br>「間違えても大丈夫」と思える空間が、創造的な挑戦を生む土台になります。</p>
+      </li>
+      <li class="promise-item reveal">
+        <div class="promise-dot" style="background:var(--green);"></div>
+        <p class="promise-text"><strong>大人が全力で子供の表現を応援し、アシスタントとして伴走する。</strong><br>子どもがクリエイティブディレクター。大人はそのビジョンを形にする支援者です。</p>
+      </li>
+      <li class="promise-item reveal">
+        <div class="promise-dot" style="background:var(--blue);"></div>
+        <p class="promise-text"><strong>正解より、想いを形にする力を大切にする。</strong><br>「なぜその色を使うのか」「どう見せたいのか」——目的意識を持った表現が、真の創造性です。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities-section" id="activities">
+  <div class="activities-inner">
+    <div class="activities-header reveal">
+      <p class="section-label">Activities</p>
+      <h2 class="section-title">これまでの歩み</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center;">2019年の発足から、学校・企業・クリエイターとの輪を広げてきました。</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-title">Creative Kids 発足</div>
+        <p class="timeline-body">子どもたちの創造性を解放する活動をスタート。ブログでの発信を開始。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-title">岐阜聖徳学園高等学校「Egg Monster」授業</div>
+        <p class="timeline-body">高校生向けに生成AIとデザインを組み合わせた探究授業を提供。創造性を引き出すワークショップを実施。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-title">ランサーズ 働き方LAB研究員（第1期生）</div>
+        <p class="timeline-body">子どもと創造性に関する研究活動を実施。社会的な視点から活動を発展させる。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title">探究授業の本格展開</div>
+        <p class="timeline-body">「天使と悪魔によるAIデザインワークショップ」など、生成AI×デザイン思考を組み合わせた授業を継続的に提供。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2025.02</div>
+        <div class="timeline-title">東急建設との共創活動 特別賞受賞</div>
+        <p class="timeline-body">中学生が大手企業役員にプレゼンする機会を創出。子どもの力が社会と接続した瞬間。</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2025.10</div>
+        <div class="timeline-title">DesignShip2025 登壇</div>
+        <p class="timeline-body">日本最大のデザインカンファレンスに一般公募スピーカーとして登壇。「次世代の創造性を解放しエンパワメントする」をテーマに発表。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <span class="about-visual-icon">🎨</span>
+      <h3>TAKEBON</h3>
+      <p style="font-family:var(--font-en);font-size:13px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);margin-bottom:12px;">TAKEBONSTUDIO</p>
+      <p>UXデザイン / マーケティング / プロダクトデザイン<br>人間中心設計専門家<br><br>大手自動車製造メーカー新規事業部門に所属しながら、パラレルキャリアを実践。</p>
+      <div class="award-badges">
+        <span class="award-badge">グッドデザイン賞 受賞</span>
+        <span class="award-badge">DesignShip2025 登壇</span>
+        <span class="award-badge">人間中心設計専門家</span>
+        <span class="award-badge">探究授業プログラム設計</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">デザイナーが<br>子どもたちへ<br>還元する</h2>
+      <p class="section-body" style="margin-bottom:28px;">
+        プロダクトデザイナーとして15年以上のキャリアを積む中で気づいたこと——それは、自分自身も「バイアス」によって動けなくなっていた時期があったということ。
+      </p>
+      <p class="section-body" style="margin-bottom:28px;">
+        ラーメン屋でアルバイトをしていた頃、社員さんの一言「竹中君、本当はやりたいこと他にあるんじゃないの？」がきっかけで、再びデザインへの道を歩み始めました。
+      </p>
+      <p class="section-body">
+        その経験があるから、同じように悩む子どもたちの「バイアス外し」ができると信じて、クリエイティブキッズの活動を続けています。
+      </p>
+      <div style="margin-top:40px;">
+        <a href="https://note.com/takebonstudio" target="_blank" class="btn-primary">noteで詳しく読む</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">一緒に<br>創造性を解放しよう</h2>
+  <p class="section-body">
+    学校・企業・クリエイターの方々からのコラボレーション、ワークショップのご依頼、取材など、お気軽にご連絡ください。
+  </p>
+  <a href="https://note.com/takebonstudio" target="_blank" class="btn-white">TAKEBONに連絡する</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <ul class="footer-links">
+    <li><a href="https://note.com/takebonstudio/m/mb3a718fb0570" target="_blank">note</a></li>
+    <li><a href="https://takebonstudio.jimdoweb.com" target="_blank">TAKEBONSTUDIO</a></li>
+    <li><a href="#top">ページトップ</a></li>
+  </ul>
+  <p class="footer-copy">© 2019–2025 Creative Kids / TAKEBONSTUDIO. All rights reserved.</p>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
