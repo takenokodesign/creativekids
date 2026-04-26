@@ -61,7 +61,7 @@ git push -u origin main
 数分後、以下のURLでサイトが公開されます：
 
 ```
-https://your-username.github.io/creative-kids/
+https://takenokodesign.github.io/creative-kids/
 ```
 
 ### 3. ロゴの表示を確認する
